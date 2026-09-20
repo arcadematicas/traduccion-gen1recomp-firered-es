@@ -1,0 +1,35 @@
+return {
+  summary   = "Traducción al español de Pokémon FireRed (Gen 3): diálogos, textos del motor, movimientos y objetos.",
+  author    = "Fransis",
+  tags      = { "language", "spanish", "firered", "gen3", "gba" },
+
+  differences = {
+    changed = {
+      "Diálogos de la ROM traducidos (3464 frases, 97,8 % del total)",
+      "Textos del motor (menús, batalla, PC, tiendas, UI) en español",
+      "Nombres de movimientos traducidos (354)",
+      "Nombres de objetos traducidos (307)",
+      "Descripciones de objetos traducidas (306)",
+      "Acentos y eñe nativos de la fuente de FRLG",
+    },
+    added = {
+      "Soporte de Gen 3 (FireRed) para gen1recomp 0.2.66+",
+      "Catálogos lang/ con los cinco registros Gen 3 (text, strings, moves, items)",
+      "Autoactualización desde el gestor de mods (repositorio dedicado)",
+    },
+    known = {
+      "La intro del Profesor Oak queda en inglés (superficie no parcheable)",
+      "Nombres de habilidades y descripciones de movimientos/habilidades no son parcheables",
+      "Los textos de la Pokédex no son parcheables con la API actual",
+      "78 líneas de diálogo sin correspondencia en el corpus quedan en inglés",
+    },
+  },
+
+  credits   = {
+    { who = "Fransis",      for_ = "traducción y adaptación" },
+    { who = "PokeCorpus",   for_ = "corpus paralelo EN/ES (textos oficiales)" },
+    { who = "gen1recomp",   for_ = "motor y sistema de mods (modkit)" },
+  },
+
+  compat    = { engine = ">=0.2.66 <1.0.0", modApi = 2 },
+}

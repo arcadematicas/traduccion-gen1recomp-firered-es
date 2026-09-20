@@ -1,6 +1,6 @@
 {
   "id": "translation-es-firered",
-  "name": "Traducción al español (FireRed)",
+  "name": "Traducción al español — Pokémon FireRed",
   "version": "0.1.0",
   "api": 2,
   "entry": "main.lua",
@@ -18,5 +18,5 @@
   "incompatible": [],
   "experimental": false,
   "github": "arcadematicas/traduccion-gen1recomp-firered-es",
-  "description": "Traducción al español para Pokémon FireRed (gen1recomp): diálogos de la ROM, textos del motor, nombres de movimientos y nombres/descripciones de objetos."
+  "description": "Traducción al español de Pokémon FireRed: diálogos de la ROM (3.464 frases), menús y textos del motor, nombres de movimientos (354) y de objetos (307) con sus descripciones. Pensada para autoactualizarse desde el gestor de mods."
 }
