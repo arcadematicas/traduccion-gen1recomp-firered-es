@@ -74,7 +74,14 @@ lang/           los catálogos — aquí está todo el trabajo
   ├── item_names.lua
   └── item_descriptions.lua
 mod.card        ficha del mod (metadatos)
+tools/          pipeline para REGENERAR los catálogos (ver tools/README.md)
 ```
+
+### 🛠️ Regenerar la traducción
+
+En [`tools/`](tools/) está el pipeline completo (generadores + validador) para
+reconstruir `lang/` desde el corpus oficial y los datos del ROM. Consulta
+[`tools/README.md`](tools/README.md).
 
 ## 🙏 Créditos
 
