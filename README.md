@@ -23,9 +23,10 @@ corre los clásicos de Pokémon (Gen 1, 2 y **3**).
 | 🎒 **Nombres de objetos** | | **307** |
 | 📖 **Descripciones de objetos** | | **306** |
 
-Incluye las tablas de texto del motor GBA: nombres de **clases de entrenador**,
-nombres de **lugares**, **Fame Checker**, etiquetas de **menús**, **naturalezas**,
-**Union Room**, placeholders de **batalla** (`{B_*}`), etc.
+Incluye la **intro del Profesor Oak**, y las tablas de texto del motor GBA:
+nombres de **clases de entrenador**, nombres de **lugares**, **Fame Checker**,
+etiquetas de **menús**, **naturalezas**, **Union Room**, placeholders de
+**batalla** (`{B_*}`), etc.
 
 Traducción basada en el [**corpus oficial paralelo EN/ES**](https://github.com/abcboy101/poke-corpus)
 extraído de los propios juegos, más el catálogo del motor reutilizado del mod de
@@ -54,7 +55,6 @@ las actualizaciones** automáticamente.
 Estas superficies **no son parcheables** con la API de mods actual, así que
 quedan en inglés:
 
-- 🎬 La **intro del Profesor Oak** (`intro/oak_speech.lua`)
 - 🧠 **Nombres de habilidades** (`ability_names.lua`)
 - 📝 **Descripciones de movimientos y habilidades** (`descriptions.lua`)
 - 📕 **Textos de la Pokédex** (`pokemon/pokedex/entries.lua`)

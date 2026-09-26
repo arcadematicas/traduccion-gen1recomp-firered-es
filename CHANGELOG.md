@@ -27,8 +27,9 @@ gen1recomp **0.3.20**).
 - Textos del motor actualizados a 0.3.20 (1824 reutilizados).
 
 ### Notas
-- Pendiente por límites del motor: intro del Prof. Oak, nombres/descripciones de
-  habilidades, textos de la Pokédex y palabras de Easy Chat.
+- Incluye la **intro del Profesor Oak** traducida (13 frases).
+- Pendiente por límites del motor: nombres/descripciones de habilidades, textos de
+  la Pokédex y palabras de Easy Chat.
 
 ## [0.1.0] — 2026-09-20
 

@@ -6,6 +6,7 @@ return {
   differences = {
     changed = {
       "Diálogos de la ROM traducidos (más de 11.000 cadenas entre ambos juegos)",
+      "Intro del Profesor Oak traducida",
       "Textos del motor (menús, batalla, PC, tiendas, UI) en español",
       "Tablas de texto GBA: clases de entrenador, lugares, Fame Checker, menús, naturalezas, Union Room",
       "Nombres de movimientos traducidos (354)",
@@ -19,7 +20,6 @@ return {
       "Autoactualización desde el gestor de mods (repositorio dedicado)",
     },
     known = {
-      "La intro del Profesor Oak queda en inglés (superficie no parcheable)",
       "Nombres de habilidades y descripciones de movimientos/habilidades no son parcheables",
       "Los textos de la Pokédex no son parcheables con la API actual",
       "Las palabras sueltas de Easy Chat (Union Room) quedan en inglés",
