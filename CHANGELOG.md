@@ -8,6 +8,21 @@ la versión vive en `manifest.json`.
 
 ---
 
+## [0.2.2] — 2026-09-26
+
+Traducción de los **nombres de ciudades, rutas e islas** (cartel al entrar a una
+zona y mapa de la región).
+
+### Añadido
+- **105 nombres de lugar** en `lang/strings.lua` (PUEBLO PALETA, CIUDAD VERDE,
+  CIUDAD PLATEADA, RUTA 1, MESETA AÑIL, ISLA CANELA…), tomados del corpus oficial.
+- **Etiquetas de planta** (`B1F` → `S1`, `ROOFTOP` → `AZOTEA`…).
+
+### Nota técnica
+El cartel de zona y el mapa de región no usan el diálogo, sino el registro
+`strings` con el **nombre inglés** como clave (`Strings(info.rawName)`), así que
+estos nombres viven en `lang/strings.lua` y no en `dialogue.lua`.
+
 ## [0.2.1] — 2026-09-26
 
 Corrección de traducciones erróneas en etiquetas cortas (menús y opciones).
