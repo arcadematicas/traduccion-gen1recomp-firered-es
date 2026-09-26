@@ -1,15 +1,15 @@
-# 🇪🇸 Traducción al español — Pokémon FireRed
+# 🇪🇸 Traducción al español — Pokémon FireRed **y LeafGreen**
 
 [![Licencia: GPL-3.0](https://img.shields.io/badge/licencia-GPL--3.0-blue.svg)](LICENSE)
 [![Última versión](https://img.shields.io/github/v/release/arcadematicas/traduccion-gen1recomp-firered-es?label=versi%C3%B3n&color=brightgreen)](https://github.com/arcadematicas/traduccion-gen1recomp-firered-es/releases)
-[![Gen 3 · GBA](https://img.shields.io/badge/Gen%203-FireRed-red.svg)](#)
-[![gen1recomp 0.2.66+](https://img.shields.io/badge/gen1recomp-0.2.66%2B-orange.svg)](https://github.com/bryanthaboi/gen1recomp)
+[![Gen 3 · GBA](https://img.shields.io/badge/Gen%203-FireRed%20%2B%20LeafGreen-red.svg)](#)
+[![gen1recomp 0.3+](https://img.shields.io/badge/gen1recomp-0.3%2B-orange.svg)](https://github.com/bryanthaboi/gen1recomp)
 
-Mod de traducción **al español** de **Pokémon FireRed** para
-[**gen1recomp**](https://github.com/bryanthaboi/gen1recomp) — el motor que corre
-los clásicos de Pokémon a través de un motor unificado (Gen 1, 2 y **3**).
+Mod de traducción **al español** de **Pokémon FireRed** y **Pokémon LeafGreen**
+para [**gen1recomp**](https://github.com/bryanthaboi/gen1recomp) — el motor que
+corre los clásicos de Pokémon (Gen 1, 2 y **3**).
 
-> **Versión:** `v0.1.0` · **Juego:** Pokémon FireRed · **Motor:** gen1recomp 0.2.66+
+> **Versión:** `v0.2.0` · **Juegos:** FireRed · LeafGreen · **Motor:** gen1recomp 0.3+
 
 ---
 
@@ -17,17 +17,19 @@ los clásicos de Pokémon a través de un motor unificado (Gen 1, 2 y **3**).
 
 | Catálogo | | Entradas |
 |---|---|:---:|
-| 💬 **Diálogos** de la ROM | conversaciones, carteles y escenas | **3464** / 3542 (97,8 %) |
-| 🖥️ **Textos del motor** | menús, batalla, PC, tiendas, UI | **1871** |
+| 💬 **Diálogos** de la ROM | conversaciones, carteles, escenas | **~11.400** |
+| 🖥️ **Textos del motor** | menús, batalla, PC, tiendas, UI | **1824** |
 | ⚔️ **Nombres de movimientos** | | **354** |
 | 🎒 **Nombres de objetos** | | **307** |
 | 📖 **Descripciones de objetos** | | **306** |
 
-Traducción basada en el
-[**corpus oficial paralelo EN/ES**](https://github.com/abcboy101/poke-corpus)
+Incluye las tablas de texto del motor GBA: nombres de **clases de entrenador**,
+nombres de **lugares**, **Fame Checker**, etiquetas de **menús**, **naturalezas**,
+**Union Room**, placeholders de **batalla** (`{B_*}`), etc.
+
+Traducción basada en el [**corpus oficial paralelo EN/ES**](https://github.com/abcboy101/poke-corpus)
 extraído de los propios juegos, más el catálogo del motor reutilizado del mod de
-Gen 2. Los **acentos y la eñe** funcionan de forma nativa (la fuente de FRLG del
-motor ya incluye los glifos).
+Gen 2. Los **acentos y la eñe** funcionan de forma nativa.
 
 ## 🚀 Instalación
 
@@ -38,10 +40,9 @@ motor ya incluye los glifos).
    <gen1recomp>/.local/share/pokemon-love2d/mods/translation-es-firered/
    ```
 
-   > El zip ya trae la **raíz plana**: `manifest.json`, `main.lua`, `lang/`.
-
-3. En el **lanzador de mods**, activa **`translation-es-firered`**.
-4. Inicia **Pokémon FireRed** y ¡a jugar! 🎮
+3. En el **lanzador de mods**, activa **`translation-es-firered`** (para FireRed
+   y/o LeafGreen).
+4. Inicia el juego. 🎮
 
 ### 🔄 Autoactualización
 
@@ -50,38 +51,40 @@ las actualizaciones** automáticamente.
 
 ## ⚠️ Limitaciones conocidas
 
-Estas superficies **no son parcheables** con la API de mods actual del motor (se
-leen directamente de los datos generados), así que quedan en inglés:
+Estas superficies **no son parcheables** con la API de mods actual, así que
+quedan en inglés:
 
 - 🎬 La **intro del Profesor Oak** (`intro/oak_speech.lua`)
 - 🧠 **Nombres de habilidades** (`ability_names.lua`)
 - 📝 **Descripciones de movimientos y habilidades** (`descriptions.lua`)
-- 📕 **Textos de la Pokédex** (`dex.lua`)
-- 🔤 ~78 líneas de diálogo sin correspondencia exacta en el corpus
-
-> La intro de Oak podría abordarse con un *hook* aparte (como se hizo en la
-> traducción de Gen 2); pendiente para el futuro.
+- 📕 **Textos de la Pokédex** (`pokemon/pokedex/entries.lua`)
+- 🌐 **Easy Chat** (palabras sueltas de Union Room)
 
 ## 🗂️ Estructura
 
 ```
-manifest.json   identidad, juego y rango de versión del motor
-main.lua        registra los overrides/patches (text, strings, moves, items)
-lang/           los catálogos — aquí está todo el trabajo
-  ├── dialogue.lua            (IR Gen 3: text / nl / para / scroll / player / rival / strvar)
-  ├── strings.lua
+manifest.json          identidad, juegos y rango de versión del motor
+main.lua               registra los overrides/patches (text, strings, moves, items)
+lang/
+  ├── dialogue.lua           diálogo común FireRed + LeafGreen
+  ├── dialogue_firered.lua   diálogo propio/distinto de FireRed
+  ├── dialogue_leafgreen.lua diálogo propio/distinto de LeafGreen
+  ├── strings.lua            textos del motor (UI)
   ├── move_names.lua
   ├── item_names.lua
   └── item_descriptions.lua
-mod.card        ficha del mod (metadatos)
-tools/          pipeline para REGENERAR los catálogos (ver tools/README.md)
+mod.card               ficha del mod
+tools/                 pipeline para REGENERAR los catálogos
 ```
+
+> El diálogo se reparte en tres ficheros porque las claves `g3:*` son
+> **direcciones de ROM distintas** en cada juego, y algunas listas de nombres
+> (p. ej. las de nombres predefinidos) difieren entre versiones.
 
 ### 🛠️ Regenerar la traducción
 
-En [`tools/`](tools/) está el pipeline completo (generadores + validador) para
-reconstruir `lang/` desde el corpus oficial y los datos del ROM. Consulta
-[`tools/README.md`](tools/README.md).
+En [`tools/`](tools/) está el pipeline completo (generadores + validador).
+Consulta [`tools/README.md`](tools/README.md).
 
 ## 🙏 Créditos
 
@@ -95,4 +98,4 @@ reconstruir `lang/` desde el corpus oficial y los datos del ROM. Consulta
 
 ---
 
-<p align="center"><em>Hecho con cariño para que FireRed se disfrute en español. 🇪🇸</em></p>
+<p align="center"><em>Hecho con cariño para que FireRed y LeafGreen se disfruten en español. 🇪🇸</em></p>

@@ -1,27 +1,28 @@
 return {
-  summary   = "Traducción al español de Pokémon FireRed (Gen 3): diálogos, textos del motor, movimientos y objetos.",
+  summary   = "Traducción al español de Pokémon FireRed y LeafGreen (Gen 3): diálogos, textos del motor, movimientos y objetos.",
   author    = "Fransis",
-  tags      = { "language", "spanish", "firered", "gen3", "gba" },
+  tags      = { "language", "spanish", "firered", "leafgreen", "gen3", "gba" },
 
   differences = {
     changed = {
-      "Diálogos de la ROM traducidos (3464 frases, 97,8 % del total)",
+      "Diálogos de la ROM traducidos (más de 11.000 cadenas entre ambos juegos)",
       "Textos del motor (menús, batalla, PC, tiendas, UI) en español",
+      "Tablas de texto GBA: clases de entrenador, lugares, Fame Checker, menús, naturalezas, Union Room",
       "Nombres de movimientos traducidos (354)",
       "Nombres de objetos traducidos (307)",
       "Descripciones de objetos traducidas (306)",
       "Acentos y eñe nativos de la fuente de FRLG",
     },
     added = {
-      "Soporte de Gen 3 (FireRed) para gen1recomp 0.2.66+",
-      "Catálogos lang/ con los cinco registros Gen 3 (text, strings, moves, items)",
+      "Soporte de FireRed y LeafGreen en un mismo mod (motor gen1recomp 0.3+)",
+      "Capa de diálogo por versión (común + firered + leafgreen) por las direcciones de ROM distintas",
       "Autoactualización desde el gestor de mods (repositorio dedicado)",
     },
     known = {
       "La intro del Profesor Oak queda en inglés (superficie no parcheable)",
       "Nombres de habilidades y descripciones de movimientos/habilidades no son parcheables",
       "Los textos de la Pokédex no son parcheables con la API actual",
-      "78 líneas de diálogo sin correspondencia en el corpus quedan en inglés",
+      "Las palabras sueltas de Easy Chat (Union Room) quedan en inglés",
     },
   },
 
@@ -31,5 +32,5 @@ return {
     { who = "gen1recomp",   for_ = "motor y sistema de mods (modkit)" },
   },
 
-  compat    = { engine = ">=0.2.66 <1.0.0", modApi = 2 },
+  compat    = { engine = ">=0.3.0 <1.0.0", modApi = 2 },
 }

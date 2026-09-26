@@ -1,13 +1,14 @@
 {
   "id": "translation-es-firered",
   "name": "Traducción al español — Pokémon FireRed",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "api": 2,
   "entry": "main.lua",
   "profile": "content",
   "game_version": ">=0.0.0-dev <1.0.0",
   "games": [
-    "firered"
+    "firered",
+    "leafgreen"
   ],
   "category": "LANGUAGE",
   "language": true,
@@ -18,5 +19,5 @@
   "incompatible": [],
   "experimental": false,
   "github": "arcadematicas/traduccion-gen1recomp-firered-es",
-  "description": "Traducción al español de Pokémon FireRed: diálogos de la ROM (3.464 frases), menús y textos del motor, nombres de movimientos (354) y de objetos (307) con sus descripciones. Pensada para autoactualizarse desde el gestor de mods."
+  "description": "Traducción al español de Pokémon FireRed y LeafGreen: diálogos de la ROM (más de 11.000 cadenas), menús y textos del motor, nombres de movimientos y de objetos con sus descripciones. Se autoactualiza desde el gestor de mods."
 }

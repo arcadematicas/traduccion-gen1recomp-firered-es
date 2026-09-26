@@ -1,10 +1,17 @@
--- translation-es-firered v0.1.0: traducción al español de Pokémon FireRed.
+-- translation-es-firered v0.2.0: traducción al español de Pokémon FireRed y LeafGreen.
 --
--- El motor (gen1recomp >= 0.2.66) expone registros Gen 3:
---   text       -> diálogo de la ROM (IR: lista de comandos)
---   strings    -> texto propio del motor (clave = literal inglés)
---   moves      -> nombres de movimientos (id = nombre inglés normalizado)
---   items      -> nombres y descripciones de objetos (id = nombre inglés normalizado)
+-- Gen 3 (motor gen1recomp 0.3.x).  El catálogo de diálogo se reparte así:
+--   lang/dialogue.lua           claves idénticas en FireRed y LeafGreen
+--   lang/dialogue_firered.lua   claves propias/distintas de FireRed
+--   lang/dialogue_leafgreen.lua claves propias/distintas de LeafGreen
+-- (las claves g3:* son direcciones de ROM distintas en cada juego, y algunas
+--  listas de nombres difieren entre versiones)
+--
+-- Registros usados:
+--   text     -> diálogo (claves de scripts/text.lua; valor = string formato pret)
+--   strings  -> texto propio del motor (clave = literal inglés)
+--   moves    -> nombres de movimientos (id = nombre inglés normalizado)
+--   items    -> nombres y descripciones de objetos (id = nombre inglés normalizado)
 return function(mod)
   local function catalog(name)
     local rel = "lang/" .. name .. ".lua"
@@ -23,22 +30,36 @@ return function(mod)
     return table_
   end
 
-  local counts = { dialogue = 0, strings = 0, moves = 0, items = 0,
-                   itemdesc = 0 }
+  local counts = { dialogue = 0, strings = 0, moves = 0, items = 0, itemdesc = 0 }
+  local function count(key) counts[key] = counts[key] + 1 end
 
-  -- ---- diálogo de la ROM (Gen 3: valor = lista de comandos IR) ----------
-  for key, value in pairs(catalog("dialogue")) do
-    if type(value) == "table" and #value > 0 then
-      mod.content.text:override(key, value)
-      counts.dialogue = counts.dialogue + 1
+  -- ---- diálogo común + capa por versión --------------------------------
+  local function applyDialogue(name)
+    for key, value in pairs(catalog(name)) do
+      if type(value) == "string" and value ~= "" then
+        mod.content.text:override(key, value)
+        count("dialogue")
+      end
     end
+  end
+  applyDialogue("dialogue")
+
+  local vid = "firered"
+  local okV, GameVersion = pcall(require, "src.core.GameVersion")
+  if okV and GameVersion and GameVersion.get then
+    vid = GameVersion.get() or vid
+  end
+  if vid == "leafgreen" then
+    applyDialogue("dialogue_leafgreen")
+  else
+    applyDialogue("dialogue_firered")
   end
 
   -- ---- texto propio del motor ------------------------------------------
   for source, value in pairs(catalog("strings")) do
     if type(source) == "string" and type(value) == "string" and value ~= "" then
       mod.content.strings:override(source, value)
-      counts.strings = counts.strings + 1
+      count("strings")
     end
   end
 
@@ -46,7 +67,7 @@ return function(mod)
   for id, value in pairs(catalog("move_names")) do
     if type(value) == "string" and value ~= "" then
       mod.content.moves:patch(id, { name = value })
-      counts.moves = counts.moves + 1
+      count("moves")
     end
   end
 
@@ -62,13 +83,13 @@ return function(mod)
     if type(item_descs[id]) == "string" then patch.description = item_descs[id] end
     if patch.name or patch.description then
       mod.content.items:patch(id, patch)
-      counts.items = counts.items + 1
-      if patch.description then counts.itemdesc = counts.itemdesc + 1 end
+      count("items")
+      if patch.description then count("itemdesc") end
     end
   end
 
   mod.events:on("game.ready", function()
-    mod.log:info("Spanish FireRed v0.1.0: %d dialogue, %d strings, %d moves, %d items (%d desc)",
-      counts.dialogue, counts.strings, counts.moves, counts.items, counts.itemdesc)
+    mod.log:info("Spanish FireRed/LeafGreen v0.2.0 [%s]: %d dialogue, %d strings, %d moves, %d items (%d desc)",
+      vid, counts.dialogue, counts.strings, counts.moves, counts.items, counts.itemdesc)
   end)
 end
