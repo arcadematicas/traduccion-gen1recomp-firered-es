@@ -8,6 +8,25 @@ la versión vive en `manifest.json`.
 
 ---
 
+## [0.2.1] — 2026-09-26
+
+Corrección de traducciones erróneas en etiquetas cortas (menús y opciones).
+
+### Corregido
+- **Menú SÍ/NO**: \`gText_Yes\`/\`gText_No\` mostraban "¿QUÉ TAL?"/"¡VETE!" en lugar de
+  "SÍ"/"NO" (afectaba, p. ej., a la elección del POKéMON inicial).
+- **Menús del PC**: "MOVER", "GUARDAR", "NOMBRE", "QUITAR"… salían con palabras
+  sueltas sin sentido ("¡MUÉVETE!", "MERCADO", "DUCHARSE"…).
+- **Naturalezas**, nombres de **condiciones** (CARISMA/DULZURA/INGENIO) y etiquetas
+  de acciones ("USAR", "DAR", "CAMINAR").
+
+### Causa
+El corpus oficial trae un bloque de **palabras de Easy Chat** cuya lista española
+tiene otro orden/longitud que la inglesa (no está alineada). Al indexar las
+traducciones por texto inglés, las cadenas cortas que también aparecen ahí
+(YES, NO, MOVE…) tomaban la variante equivocada. Ahora ese bloque se excluye y,
+además, se prefiere la variante completa frente a recortes.
+
 ## [0.2.0] — 2026-09-26
 
 Soporte de **Pokémon LeafGreen** y ampliación masiva del diálogo (motor
