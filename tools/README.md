@@ -38,6 +38,7 @@ python3 tools/harvest_strings.py engine/src > engine_strings.txt
 python3 tools/gen_dialogue.py    # corpus + fr_new.tsv/lg_new.tsv -> dialogue{,_firered,_leafgreen}.lua
 python3 tools/gen_strings.py     # engine_strings.txt + GSC -> strings.lua
 python3 tools/gen_names.py       # corpus XY + FRLG -> move_names/item_names/item_descriptions.lua
+python3 tools/gen_locations.py   # anade NOMBRES DE LUGAR + plantas a strings.lua
 
 # 4) Validar
 luajit tools/sim_mod.lua <carpeta_del_mod> firered
@@ -59,6 +60,13 @@ tags `{A_BUTTON}`/`{PKMN}`/`{FONT_*}`, placeholders de batalla `{B_*}`.
 
 Conversión desde el corpus: `[PLAYER]`→`{PLAYER}`, `\c`→`\p`, `\r`→`\l`,
 `[B_*]`→`{B_*}`, `[TAG]`→`{TAG}`.
+
+## 📍 Nombres de lugar (ciudades/rutas) y plantas
+
+El cartel de zona y el mapa de región NO usan el diálogo, sino `Strings(nombre inglés)`
+(`map_name_popup.lua`, `region_map.lua`). Los literales salen de `map_sections.lua` y
+`region_map/names.lua`. `gen_locations.py` los añade a `lang/strings.lua` con su traducción
+del corpus. Etiquetas de planta: `1F`→`1F`, `B1F`→`S1`, `ROOFTOP`→`AZOTEA`.
 
 ## 🗂️ Reparto del diálogo
 
